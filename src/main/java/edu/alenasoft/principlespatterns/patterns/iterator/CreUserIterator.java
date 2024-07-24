@@ -1,20 +1,21 @@
 package edu.alenasoft.principlespatterns.patterns.iterator;
 
 import java.util.List;
+import java.util.Map;
 
 public class CreUserIterator implements Iterator<CreUser> {
 
-    private final List<CreUser> creUsers;
-    private int currentPosition = 0;
+    private final Map<Integer ,UserData> creUsers;
+    private int currentPosition = 1;
 
-    public CreUserIterator(List<CreUser> creUsers) {
+    public CreUserIterator(Map<Integer ,UserData> creUsers) {
         this.creUsers = creUsers;
     }
 
 
     @Override
     public CreUser next() {
-        return this.creUsers.get(currentPosition++);
+        return new CreUser(this.currentPosition++, this.creUsers.get(this.currentPosition));
     }
 
     @Override
@@ -24,6 +25,6 @@ public class CreUserIterator implements Iterator<CreUser> {
 
     @Override
     public CreUser currentItem() {
-        return this.creUsers.get(currentPosition);
+        return new CreUser(this.currentPosition, this.creUsers.get(this.currentPosition));
     }
 }
