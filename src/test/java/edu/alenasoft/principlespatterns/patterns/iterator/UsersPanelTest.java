@@ -29,4 +29,16 @@ class UsersPanelTest {
     panel.addAggregate(new FacebookAggregate());
     panel.show();
   }
+
+  @Test
+  void add_company_on_runtime_v2() {
+    var panel = new UsersPanelV2();
+    System.out.println("hoy");
+    panel.show();
+    System.out.println("futuro");
+    panel.addAggregate(new GoogleAggregate());
+    panel.addAggregate(new FacebookAggregate());
+    panel.addAggregate(new CreAggregate());
+    panel.show();
+  }
 }
